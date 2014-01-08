@@ -23,7 +23,11 @@ bot.addListener('message', function (from, to, message) {
         // channel message
         if (message.match(/hello/i)) {
             bot.say(to, 'Hello there ' + from);
-        }        
+        }
+
+        if (message.match(/diceroll/i)) {
+            bot.say(to, 'Not implemented yet, ' + from);
+        }
     } else {
         // private message
     }

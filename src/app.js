@@ -9,14 +9,14 @@ bot.addListener('error', function (message) {
 
 bot.addListener('message', function (from, to, message) {
     if (to.match(/^[#&]/)) {
-        
+
         if (message.match(/hello/i)) {
-            bot.say(to, 'Hello there ' + from);
+            bot.say(to, 'Hello ' + from);
         }
 
         if (message.match(/diceroll/i)) {
             bot.say(to, 'Not implemented yet, ' + from);
         }
-        
+
     }
 });

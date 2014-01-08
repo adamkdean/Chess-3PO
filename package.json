@@ -1,0 +1,9 @@
+{
+  "name": "D-3PO",
+  "description": "D-3PO, sometimes spelled Dee-Threepio, is a NodeJS, humanoid protocol droid designed to interact with organics, programmed primarily for dice rolls.",
+  "author": "Adam K Dean <adam@amberfish.co.uk>",
+  "dependencies": {
+    "express": ">= 1.2.0"    
+  },
+  "engine": "node 0.10.x"
+}

@@ -24,3 +24,6 @@ bot.addListener('message', function (from, to, message) {
 
     }
 });
+
+
+console.log('end of script');

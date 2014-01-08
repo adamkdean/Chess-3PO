@@ -5,5 +5,6 @@ var config = {
     password: 'udnfsjwekpky',
     userName: 'D-3PO',
     realName: 'D-3PO',
-    channels: ['#amberfish']
+    channels: ['#amberfish'],
+    debug: true
 };

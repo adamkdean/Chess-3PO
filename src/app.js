@@ -1,14 +1,5 @@
-var config = {
-    server: 'chat.freenode.net',
-    port: 6667,
-    nick: 'D-3PO',
-    password: 'udnfsjwekpky',
-    userName: 'D-3PO',
-    realName: 'D-3PO',
-    channels: ['#amberfish']
-};
-
-var irc = require('irc');
+var irc = require('irc'),
+    config = require('./config');
 
 var bot = new irc.Client(config.server, config.nick, config);
 
@@ -17,10 +8,8 @@ bot.addListener('error', function (message) {
 });
 
 bot.addListener('message', function (from, to, message) {
-    console.log('%s => %s: %s', from, to, message);
-
     if (to.match(/^[#&]/)) {
-        // channel message
+        
         if (message.match(/hello/i)) {
             bot.say(to, 'Hello there ' + from);
         }
@@ -28,7 +17,6 @@ bot.addListener('message', function (from, to, message) {
         if (message.match(/diceroll/i)) {
             bot.say(to, 'Not implemented yet, ' + from);
         }
-    } else {
-        // private message
+        
     }
 });

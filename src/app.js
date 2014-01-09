@@ -1,30 +1,26 @@
-var net = require('net'),
-    ircee = require('ircee'),
+var irc = require('irc'),
     config = require('./config');
 
-var irc = ircee();
+var bot = new irc.Client(config.server, config.nick, config);
 
-irc.on('connect', function() {
-    
-    // Load the core module. It keeps the connection alive 
-    // when loaded and provides the login method.    
-    var core = irc.use(require('ircee/core'));
+console.log('configuring listeners...');
 
-    // use the login method to send the nickname
-    core.login({
-        nick: config.nick,
-        user: config.userName,
-        name: config.realName,
-        pass: config.password
-    });
-
+bot.addListener('error', function (message) {
+    console.error('ERROR: %s: %s', message.command, message.args.join(' '));
 });
 
-// Log all protocol lines to stdout
-irc.on('event', function(e) { 
-    console.log(e.raw);
-});
+bot.addListener('message', function (from, to, message) {
+    console.log('%s => %s: %s', from, to, message);    
 
-// Connect the actual socket and pipe it to the client
-var s = net.connect(6667, 'irc.freenode.net');
-s.pipe(irc).pipe(s);
+    if (to.match(/^[#&]/)) {
+
+        if (message.match(/hello/i)) {
+            bot.say(to, 'Hello ' + from);
+        }
+
+        if (message.match(/diceroll/i)) {
+            bot.say(to, 'Not implemented yet, ' + from);
+        }
+
+    }
+});

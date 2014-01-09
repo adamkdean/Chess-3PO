@@ -7,3 +7,6 @@ var config = {
     realName: 'D-3PO',
     channels: ['#amberfish']
 };
+
+
+module.exports = config;

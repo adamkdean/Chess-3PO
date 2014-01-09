@@ -3,8 +3,6 @@ var irc = require('irc'),
 
 var bot = new irc.Client(config.server, config.nick, config);
 
-console.log('configuring listeners...');
-
 bot.addListener('error', function (message) {
     console.error('ERROR: %s: %s', message.command, message.args.join(' '));
 });

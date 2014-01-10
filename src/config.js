@@ -8,5 +8,4 @@ var config = {
     channels: ['#amberfish']
 };
 
-
 module.exports = config;

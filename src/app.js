@@ -1,6 +1,6 @@
 var irc = require('irc'),
     config = require('./config'),
-    diceroll = require('./diceroll'),
+    diceroll = require('./diceroll');
 
 var bot = new irc.Client(config.server, config.nick, config);
 

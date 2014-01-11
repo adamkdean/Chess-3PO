@@ -1,4 +1,6 @@
-function roll(s, m, n, f, a) {
+var expression = /(?:(\d+)\s*\*\s*)?(\d*)d(\d+)(?:\s*([\+\-]\s*\d+))?/i;
+
+var calculate = function (s, m, n, f, a) {
     m = parseInt(m);
     if (isNaN(m)) m = 1;
     n = parseInt(n);
@@ -8,17 +10,20 @@ function roll(s, m, n, f, a) {
     if (isNaN(a)) a = 0;
     var r = 0;
     for (var i = 0; i < n; i++)
-        r += Math.floor(Math.random() * f);
-    var result = r * m + a;
-
-    console.log(s);
-
-    return result;
-};
- 
-function parse(s) {
-    return roll.apply(this, 
-        s.match(/(?:(\d+)\s*\*\s*)?(\d*)d(\d+)(?:\s*([\+\-]\s*\d+))?/i));
+        r += Math.floor((Math.random() * f) + 1);
+    return {
+        input: s,
+        output: r * m + a
+    };
 };
 
-module.exports = parse;
+var parse = function (s, returnObject) {
+    var d = calculate.apply(this, s.match(expression));
+    return (returnObject) ? d : d.input + ': ' + d.output;
+};
+
+module.exports = {
+    expression: expression,
+    calculate: calculate,
+    parse: parse
+};

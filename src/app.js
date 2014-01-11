@@ -14,7 +14,7 @@ bot.addListener('message', function (from, to, message) {
     if (to.match(/^[#&]/)) {
 
         if (message.match(/(?:(\d+)\s*\*\s*)?(\d*)d(\d+)(?:\s*([\+\-]\s*\d+))?/i)) {
-            bot.say(to, from + ': ' + message + ' = ' + diceroll.parse(message));;
+            bot.say(to, from + ': ' + message + ' = ' + diceroll(message));;
         }
 
         if (message.match(/hello/i)) {

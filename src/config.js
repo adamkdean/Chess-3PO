@@ -1,4 +1,4 @@
-var DEV_MODE = true;
+var DEV_MODE = false;
 
 var config = {
     server: 'chat.freenode.net',

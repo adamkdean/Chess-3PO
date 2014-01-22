@@ -26,7 +26,8 @@ bot.addListener('message', function (from, to, message) {
         }
 
         if (utility.match(bot, to, message)) {
-            bot.say(to, utility.exec(bot, to, message));
+            bot.say(to, 'Yep, I got that one!');
+            //bot.say(to, utility.exec(bot, to, message));
         }
     }
 

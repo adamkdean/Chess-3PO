@@ -25,7 +25,7 @@ bot.addListener('message', function (from, to, message) {
         } else if (message.match(coinflip.expression)) {
             bot.say(to, coinflip.flip());
         } else if (message.match(quotes.expression)) {
-            bot.say(to, quotes.getQuote());
+            quotes.getQuote(bot, to);
         }
 
         // other misc stuff

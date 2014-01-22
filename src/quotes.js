@@ -1,10 +1,10 @@
 var http = require('http'),
-    expression = /\b(!quote)\b/i,
+    expression = /\!\b(quote)\b/i,
     max_lines = 1,
     max_characters = 255,
     api_url = 'http://iheartquotes.com/api/v1/random?format=json&max_lines=' + max_lines + '&max_characters=' + max_characters;
 
-var getQuote = function () {
+var getQuote = function (bot, to) {
     http.get(api_url, function(res) {
         var body = '';
 
@@ -14,10 +14,10 @@ var getQuote = function () {
 
         res.on('end', function() {
             var response = JSON.parse(body);
-            return response.quote;
+            bot.say(to, response.quote);
         });
     }).on('error', function(e) {
-          return 'Error getting quote. I sleep now.';
+          bot.say(to, 'Error getting quote. I sleep now.');
     });
 };
 

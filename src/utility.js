@@ -9,16 +9,16 @@ var commands = {
 };
 
 var match = function (bot, to, message) {
-    bot.say(to, 'Looking for ' + message + ' in commands');
+    //bot.say(to, 'Looking for ' + message + ' in commands');
     for(var key in commands) {
-        bot.say(to, 'Key: ' + key);
+        //bot.say(to, 'Key: ' + key);
         if (message.match(commands[key].expression)) 
         {
-            bot.say(to, 'Found ' + key);
+            //bot.say(to, 'Found ' + key);
             return true;
         }
     }
-    bot.say(to, 'Me no find ' + key);
+    //bot.say(to, 'Me no find ' + key);
     return false;
 };
 

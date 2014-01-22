@@ -2,23 +2,23 @@ var util = require('util'),
     exec = require('child_process').exec;
 
 var commands = {
-    d_uptime: {
-        expression: /\b(d_uptime)\b/i,
-        command: 'd_uptime'
+    '!uptime': {
+        expression: /\b(!uptime)\b/i,
+        command: '!uptime'
     }
 };
 
 var match = function (bot, to, message) {
-    bot.say('imdsm', 'Looking for ' + message + ' in commands: ' + commands);
+    
     for(var key in commands) {
-        bot.say('imdsm', 'Key: ' + key);
+        
         if (message.match(commands[key].expression)) 
         {
-            bot.say('imdsm', 'Found ' + key);
+        
             return true;
         }
     }
-    bot.say('imdsm', 'Me no find ' + key);
+    
     return false;
 };
 

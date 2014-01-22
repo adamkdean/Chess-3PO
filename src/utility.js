@@ -9,8 +9,8 @@ var commands = {
 var match = function (bot, to, message) {
     var regex, key;
     for(key in commands) {
-        regex = new RegExp("/\b(" + key + ")\b/i");
-        if (message.match(regex)) {        
+        regex = new RegExp("\\b(" + key + ")\\b", 'i');
+        if (message.match(regex)) {
             return true;
         }
     }
@@ -18,8 +18,8 @@ var match = function (bot, to, message) {
 };
 
 var exec = function (bot, to, message) {    
-    if (commands[message] && commands[message].command) {
-        exec(commands[message].command,
+    if (commands[message]) {
+        exec(commands[message],
             function (error, stdout, stderr) {
                 return (error) 
                     ? stderr

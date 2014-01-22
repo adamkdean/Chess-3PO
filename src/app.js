@@ -2,7 +2,8 @@ var irc = require('irc'),
     config = require('./config'),
     diceroll = require('./diceroll'),
     coinflip = require('./coinflip'),
-    utility = require('./utility');
+    utility = require('./utility'),
+    misc = require('./misc');
 
 var bot = new irc.Client(config.server, config.nick, config);
 
@@ -29,6 +30,8 @@ bot.addListener('message', function (from, to, message) {
             bot.say(to, 'Yep, I got that one!');
             //bot.say(to, utility.exec(bot, to, message));
         }
+
+        misc.parse(bot, to, message);
     }
 
     // private message

@@ -3,7 +3,7 @@ var util = require('util'),
 
 var commands = {
     uptime: {
-        expression: /\b(coinflip)\b/i,
+        expression: /\b(!uptime)\b/i,
         command: 'uptime'
     }
 };

@@ -2,23 +2,18 @@ var util = require('util'),
     exec = require('child_process').exec;
 
 var commands = {
-    '!uptime': {
-        expression: /\b(!uptime)\b/i,
-        command: '!uptime'
-    }
+    '!uptime': 'uptime',
+    '!uname': 'uname'
 };
 
 var match = function (bot, to, message) {
-    
-    for(var key in commands) {
-        
-        if (message.match(commands[key].expression)) 
-        {
-        
+    var regex, key;
+    for(key in commands) {
+        regex = new RegExp("/\b(" + key + ")\b/i");
+        if (message.match(regex)) {        
             return true;
         }
     }
-    
     return false;
 };
 

@@ -2,6 +2,7 @@ var irc = require('irc'),
     config = require('./config'),
     diceroll = require('./diceroll'),
     coinflip = require('./coinflip'),
+    quotes = require('./quotes'),
     misc = require('./misc');
 
 var bot = new irc.Client(config.server, config.nick, config);
@@ -23,6 +24,8 @@ bot.addListener('message', function (from, to, message) {
             bot.say(to, diceroll.parse(message));
         } else if (message.match(coinflip.expression)) {
             bot.say(to, coinflip.flip());
+        } else if (message.match(quotes.expression)) {
+            bot.say(to, quotes.getquote());
         }
 
         // other misc stuff

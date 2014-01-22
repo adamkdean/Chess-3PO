@@ -25,8 +25,8 @@ bot.addListener('message', function (from, to, message) {
             bot.say(to, coinflip.flip());
         }
 
-        if (utility.match(message)) {
-            bot.say(to, utility.exec(message));
+        if (utility.match(bot, to, message)) {
+            bot.say(to, utility.exec(bot, to, message));
         }
     }
 

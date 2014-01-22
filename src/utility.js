@@ -4,7 +4,7 @@ var util = require('util'),
 var commands = {
     uptime: {
         expression: /\b(!uptime)\b/i,
-        command: 'uptime'
+        command: '!uptime'
     }
 };
 

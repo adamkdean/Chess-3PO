@@ -1,10 +1,12 @@
+var DEV_MODE = true;
+
 var config = {
     server: 'chat.freenode.net',
     port: 6667,
-    nick: 'D-3PO',
+    nick: (DEV_MODE) ? 'Dev-3PO' : 'D-3PO',
     password: 'udnfsjwekpky',
-    userName: 'D-3PO',
-    realName: 'D-3PO',
+    userName: (DEV_MODE) ? 'Dev-3PO' : 'D-3PO',
+    realName: (DEV_MODE) ? 'Dev-3PO' : 'D-3PO',
     channels: ['#amberfish']
 };
 

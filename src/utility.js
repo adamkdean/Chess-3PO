@@ -2,9 +2,9 @@ var util = require('util'),
     exec = require('child_process').exec;
 
 var commands = {
-    uptime: {
-        expression: /\b(!uptime)\b/i,
-        command: '!uptime'
+    d_uptime: {
+        expression: /\b(d_uptime)\b/i,
+        command: 'd_uptime'
     }
 };
 

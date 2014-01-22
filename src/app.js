@@ -5,7 +5,7 @@ var irc = require('irc'),
     quotes = require('./quotes'),
     misc = require('./misc');
 
-/* bot = new irc.Client(config.server, config.nick, config);
+bot = new irc.Client(config.server, config.nick, config);
 
 bot.addListener('error', function (message) {
     console.error('ERROR: %s: %s', message.command, message.args.join(' '));
@@ -25,12 +25,10 @@ bot.addListener('message', function (from, to, message) {
         } else if (message.match(coinflip.expression)) {
             bot.say(to, coinflip.flip());
         } else if (message.match(quotes.expression)) {
-            bot.say(to, quotes.getquote());
+            bot.say(to, quotes.getQuote());
         }
 
         // other misc stuff
         misc.parse(bot, to, message);
     }
-});*/
-
-quotes.getQuote();
+});

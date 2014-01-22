@@ -1,4 +1,4 @@
-var expression = /(?:(\d+)\s*\*\s*)?(\d*)d(\d+)(?:\s*([\+\-]\s*\d+))?/i;
+var expression = /\!(?:(\d+)\s*\*\s*)?(\d*)d(\d+)(?:\s*([\+\-]\s*\d+))?/i;
 
 var calculate = function (s, m, n, f, a) {
     m = parseInt(m);

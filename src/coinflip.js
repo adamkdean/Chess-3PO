@@ -1,4 +1,4 @@
-var expression = /\b(coinflip)\b/i;
+var expression = /\!\b(coinflip)\b/i;
 
 var flip = function () {
     var result = Math.floor((Math.random() * 2)),

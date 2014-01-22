@@ -5,7 +5,7 @@ var http = require('http'),
     api_url = 'http://iheartquotes.com/api/v1/random?format=json&max_lines=' + max_lines + '&max_characters=' + max_characters;
 
 var getQuote = function () {
-    http.get(url, function(res) {
+    http.get(api_url, function(res) {
         var body = '';
 
         res.on('data', function(chunk) {
@@ -14,10 +14,10 @@ var getQuote = function () {
 
         res.on('end', function() {
             var response = JSON.parse(body);
-            console.log("Got response: ", fbResponse.picture);
+            return response.quote;
         });
     }).on('error', function(e) {
-          console.log("Got error: ", e);
+          return 'Error getting quote. I sleep now.';
     });
 };
 

@@ -5,7 +5,7 @@ var irc = require('irc'),
     quotes = require('./quotes'),
     misc = require('./misc');
 
-var bot = new irc.Client(config.server, config.nick, config);
+/* bot = new irc.Client(config.server, config.nick, config);
 
 bot.addListener('error', function (message) {
     console.error('ERROR: %s: %s', message.command, message.args.join(' '));
@@ -31,4 +31,6 @@ bot.addListener('message', function (from, to, message) {
         // other misc stuff
         misc.parse(bot, to, message);
     }
-});
+});*/
+
+quotes.getQuote();

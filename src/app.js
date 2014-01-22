@@ -1,7 +1,8 @@
 var irc = require('irc'),
     config = require('./config'),
     diceroll = require('./diceroll'),
-    coinflip = require('./coinflip');
+    coinflip = require('./coinflip'),
+    utility = require('./utility');
 
 var bot = new irc.Client(config.server, config.nick, config);
 
@@ -20,8 +21,12 @@ bot.addListener('message', function (from, to, message) {
     if (to.match(/^[#&]/)) {
         if (message.match(diceroll.expression)) {
             bot.say(to, diceroll.parse(message));
-        } else  if (message.match(coinflip.expression)) {
+        } else if (message.match(coinflip.expression)) {
             bot.say(to, coinflip.flip());
+        }
+
+        if (utility.match(message)) {
+            bot.say(to, utility.exec(message));
         }
     }
 

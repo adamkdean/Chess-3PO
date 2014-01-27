@@ -1,4 +1,4 @@
-var DEV_MODE = false;
+var DEV_MODE = true;
 
 var config = {
     server: 'chat.freenode.net',
@@ -7,7 +7,8 @@ var config = {
     password: 'udnfsjwekpky',
     userName: (DEV_MODE) ? 'Dev-3PO' : 'D-3PO',
     realName: (DEV_MODE) ? 'Dev-3PO' : 'D-3PO',
-    channels: ['#amberfish']
+    channels: ['#amberfish'],
+    devMode: DEV_MODE
 };
 
 module.exports = config;

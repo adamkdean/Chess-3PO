@@ -17,13 +17,15 @@ var calculate = function (s, m, n, f, a) {
     };
 };
 
-var parse = function (s, returnObject) {
-    var d = calculate.apply(this, s.match(expression));
-    return (returnObject) ? d : d.input + ': ' + d.output;
+var parse = function (to, from, message) {
+    if (message.match(expression)) {
+        var d = calculate.apply(this, message.match(expression));
+        return d.input + ': ' + d.output;
+    }
+
+    return null;
 };
 
 module.exports = {
-    expression: expression,
-    calculate: calculate,
     parse: parse
 };

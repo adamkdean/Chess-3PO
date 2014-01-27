@@ -6,7 +6,14 @@ var flip = function () {
     return 'Flipping a coin... ' + flip + '!';
 };
 
+var parse = function (to, from, message) {
+    if (message.match(expression)) {
+        return flip();
+    }
+
+    return null;
+};
+
 module.exports = {
-    expression: expression,
-    flip: flip
+    parse: parse
 };

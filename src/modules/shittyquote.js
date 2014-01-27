@@ -1,5 +1,5 @@
 var http = require('http'),
-    expression = /\!\b(quote)\b/i,
+    expression = /\!\b(shittyquote)\b/i,
     max_lines = 1,
     max_characters = 255,
     api_url = 'http://iheartquotes.com/api/v1/random?format=json&max_lines=' + max_lines + '&max_characters=' + max_characters;
@@ -21,7 +21,14 @@ var getQuote = function (bot, to) {
     });
 };
 
+var parse = function (to, from, message, bot) {
+    if (message.match(expression)) {
+        getQuote(bot, to);
+    }
+
+    return null;
+};
+
 module.exports = {
-    expression: expression,
-    getQuote: getQuote
+    parse: parse
 };

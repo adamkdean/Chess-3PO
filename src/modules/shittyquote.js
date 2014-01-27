@@ -21,9 +21,9 @@ var getQuote = function (bot, to) {
     });
 };
 
-var parse = function (to, from, message, bot) {
-    if (message.match(expression)) {
-        getQuote(bot, to);
+var parse = function (args) {
+    if (args.message.match(expression)) {
+        getQuote(args.bot, args.to);
     }
 
     return null;

@@ -6,8 +6,8 @@ var flip = function () {
     return 'Flipping a coin... ' + flip + '!';
 };
 
-var parse = function (to, from, message) {
-    if (message.match(expression)) {
+var parse = function (args) {
+    if (args.message.match(expression)) {
         return flip();
     }
 

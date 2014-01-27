@@ -17,9 +17,9 @@ var calculate = function (s, m, n, f, a) {
     };
 };
 
-var parse = function (to, from, message) {
-    if (message.match(expression)) {
-        var d = calculate.apply(this, message.match(expression));
+var parse = function (args) {
+    if (args.message.match(expression)) {
+        var d = calculate.apply(this, args.message.match(expression));
         return d.input + ': ' + d.output;
     }
 

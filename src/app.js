@@ -19,7 +19,10 @@ bot.addListener('message', function (from, to, message) {
 
     if (to.match(/^[#&]/)) {
         for(key in modules) {
-            response = modules[key].parse(to, from, message, bot);
+            response = modules[key].parse({                
+                from: from, to: to, message: message,
+                bot: bot, modules: modules
+            });
             if (response !== null) {
                 bot.say(to, response);
             }

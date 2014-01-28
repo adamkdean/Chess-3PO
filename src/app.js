@@ -1,5 +1,6 @@
 var irc = require('irc'),
     config = require('./config'),
+    extensions = require('./extensions'),
     modules = require('./modules');
     
 bot = new irc.Client(config.server, config.nick, config);

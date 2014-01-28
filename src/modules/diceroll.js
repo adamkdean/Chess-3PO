@@ -1,3 +1,7 @@
+var help = {
+    message: 'Roll dice with standard syntax. !d6 is one six sided die. !2d6 is two. !2d6+5 rolls two dice and adds 5, etc.'
+};
+
 var expression = /\!(?:(\d+)\s*\*\s*)?(\d*)d(\d+)(?:\s*([\+\-]\s*\d+))?/i;
 
 var calculate = function (s, m, n, f, a) {
@@ -27,5 +31,6 @@ var parse = function (args) {
 };
 
 module.exports = {
-    parse: parse
+    parse: parse,
+    help: help
 };

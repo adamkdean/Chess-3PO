@@ -1,3 +1,7 @@
+var help = {
+    message: 'Use !modules command to show a list of currently installed modules'
+};
+
 var expression = /\!\b(modules)\b/i;
 
 var listModules = function (modules) {
@@ -17,5 +21,6 @@ var parse = function (args) {
 };
 
 module.exports = {
-    parse: parse
+    parse: parse,
+    help: help
 };

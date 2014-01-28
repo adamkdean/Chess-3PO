@@ -1,3 +1,7 @@
+var help = {
+    message: 'Flip a coin by typing !coinflip. 50/50 chance!'
+};
+
 var expression = /\!\b(coinflip)\b/i;
 
 var flip = function () {
@@ -15,5 +19,6 @@ var parse = function (args) {
 };
 
 module.exports = {
-    parse: parse
+    parse: parse,
+    help: help
 };

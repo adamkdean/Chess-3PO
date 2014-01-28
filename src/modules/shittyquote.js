@@ -1,3 +1,7 @@
+var help = {
+    message: 'Produce a shitty, low-quality quote from iheartquotes.com'
+};
+
 var http = require('http'),
     expression = /\!\b(shittyquote)\b/i,
     max_lines = 1,
@@ -30,5 +34,6 @@ var parse = function (args) {
 };
 
 module.exports = {
-    parse: parse
+    parse: parse,
+    help: help
 };

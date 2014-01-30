@@ -1,3 +1,7 @@
+var help = {
+    message: 'Type !help <commandhere> and get help for that command, obviously.'
+};
+
 var expressions = [
     /\!\b(help)\b/i,
     /\!\b(help)\b \b(.+)\b/i
@@ -45,5 +49,6 @@ var parse = function (args) {
 };
 
 module.exports = {
-    parse: parse
+    parse: parse,
+    help: help
 };

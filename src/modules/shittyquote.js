@@ -9,8 +9,7 @@ var http = require('http'),
     expressionWhy = /\!\b(why)\b/i,
     expressionVulgar = /\!\b(vulgar)\b/i,
     expressionTolkien = /\!\b(tolkien)\b/i,
-    expressionJoel = /\!\b(joel)\b/i,
-    max_lines = 3,
+    max_lines = 1,
     max_characters = 255,
     api_url = 'http://iheartquotes.com/api/v1/random?format=json&max_lines=' + max_lines + '&max_characters=' + max_characters;
 
@@ -52,8 +51,6 @@ var parse = function (args) {
         source = '1811_dictionary_of_the_vulgar_tongue';
     } else if (args.message.match(expressionTolkien)) {
         source = 'j_r_r_tolkien';
-    } else if (args.message.match(expressionJoel)) {
-        source = 'joel_on_software';
     }
 
     if (source) {

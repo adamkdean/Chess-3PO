@@ -3,13 +3,19 @@ var help = {
 };
 
 var http = require('http'),
-    expression = /\!\b(shittyquote)\b/i,
+    expressionSQ = /\!\b(shittyquote)\b/i,
+    expressionWisdom = /\!\b(wisdom)\b/i,
+    expressionEinstein = /\!\b(einstein)\b/i,
     max_lines = 1,
     max_characters = 255,
     api_url = 'http://iheartquotes.com/api/v1/random?format=json&max_lines=' + max_lines + '&max_characters=' + max_characters;
 
-var getQuote = function (bot, to) {
-    http.get(api_url, function(res) {
+var getQuote = function (bot, to, source) {
+    var url = api_url;
+    if (source) {
+        url += "&source=" + source;
+    }
+    http.get(url, function(res) {
         var body = '';
 
         res.on('data', function(chunk) {
@@ -26,8 +32,18 @@ var getQuote = function (bot, to) {
 };
 
 var parse = function (args) {
-    if (args.message.match(expression)) {
-        getQuote(args.bot, args.to);
+    var source = false;
+
+    if (args.message.match(expressionSQ)) {
+        source = '';
+    } else if (args.message.match(expressionWisdom)) {
+        source = 'wisdom';
+    } else if (args.message.match(expressionEinstein)) {
+        source = 'albert_einstein';
+    }
+
+    if (source) {
+        getQuote(args.bot, args.to, source);
     }
 
     return null;

@@ -10,7 +10,7 @@ var http = require('http'),
     expressionVulgar = /\!\b(vulgar)\b/i,
     expressionTolkien = /\!\b(tolkien)\b/i,
     expressionJoel = /\!\b(joel)\b/i,
-    max_lines = 1,
+    max_lines = 3,
     max_characters = 255,
     api_url = 'http://iheartquotes.com/api/v1/random?format=json&max_lines=' + max_lines + '&max_characters=' + max_characters;
 
@@ -28,7 +28,9 @@ var getQuote = function (bot, to, source) {
 
         res.on('end', function() {
             var response = JSON.parse(body);
-            bot.say(to, response.quote);
+            if (response) {
+                bot.say(to, response.quote);
+            }
         });
     }).on('error', function(e) {
           bot.say(to, 'Error getting quote. I sleep now.');
@@ -53,6 +55,7 @@ var parse = function (args) {
     } else if (args.message.match(expressionJoel)) {
         source = 'joel_on_software';
     }
+
     if (source) {
         getQuote(args.bot, args.to, source);
     }

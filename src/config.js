@@ -1,14 +1,11 @@
-var DEV_MODE = false;
-
 var config = {
-    server: 'chat.freenode.net',
-    port: 6667,
-    nick: (DEV_MODE) ? 'Dev-3PO' : 'D-3PO',
-    password: 'udnfsjwekpky',
-    userName: (DEV_MODE) ? 'Dev-3PO' : 'D-3PO',
-    realName: (DEV_MODE) ? 'Dev-3PO' : 'D-3PO',
-    channels: (DEV_MODE) ? ['#amberfish-dev'] : ['#amberfish'],
-    devMode: DEV_MODE
+    server: process.env.IRC_SERVER || 'chat.freenode.net',
+    port: process.env.IRC_PORT || 6667,
+    nick: process.env.IRC_NICK || 'Chess-3PO',
+    password: process.env.IRC_PASSWORD || '',
+    userName: process.env.IRC_USERNAME || 'Chess-3PO',
+    realName: process.env.IRC_REALNAME || 'Chess-3PO',
+    channels: ['#0x0']
 };
 
 module.exports = config;

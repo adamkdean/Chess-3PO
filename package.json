@@ -1,10 +1,11 @@
 {
-    "name": "D-3PO",
-    "description": "D-3PO, sometimes spelled Dee-Threepio, is a NodeJS, humanoid protocol droid designed to interact with organics, programmed primarily for dice rolls.",
-    "author": "Adam K Dean <adamkdean@googlemail.com>",
-    "dependencies": {
-        "irc": ">= 0.3.6",
-        "underscore": ">= 1.5.2"
-    },
-    "engine": "node 0.10.x"
+  "name": "Chess-3PO",
+  "description": "Chess-3PO, cousin of D-3PO, is a NodeJS, humanoid protocol droid designed to interact with organics, programmed primarily for facilitating Chess games",
+  "author": "Adam K Dean <adamkdean@googlemail.com>",
+  "dependencies": {
+    "chess": "^0.2.5",
+    "irc": "^0.3.9",
+    "lodash": "^3.5.0"
+  },
+  "engine": "node 0.12.x"
 }
